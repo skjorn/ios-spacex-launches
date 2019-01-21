@@ -13,9 +13,9 @@ There are no initial expectations as to what information to display for launch p
 
 ## Launch Data To Display
 
-This is how SpaceX themselves present their mission manifest: https://www.spacex.com/missions
-A nicely made fan project that presents the data from the same API on the web: https://www.spacexwiki.com/launches
-A similar Android app: https://play.google.com/store/apps/details?id=com.danielscholte.spacexlaunches
+* This is how SpaceX themselves present their mission manifest: https://www.spacex.com/missions
+* A nicely made fan project that presents the data from the same API on the web: https://www.spacexwiki.com/launches
+* A similar Android app: https://play.google.com/store/apps/details?id=com.danielscholte.spacexlaunches
 
 Inspired by the showcases above, a launch preview should present this information:
 * Mission name
