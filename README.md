@@ -11,7 +11,7 @@ REST API documentation: https://github.com/r-spacex/SpaceX-API
 
 There are no initial expectations as to what information to display for launch preview and detail, so additional design steps needed to be taken in order to narrow down the specification. Further decisions were informed by what's available in the API and by other apps, web sites and articles that provide similar information.
 
-## Launch Data To Display
+### Launch Data To Display
 
 * This is how SpaceX themselves present their mission manifest: https://www.spacex.com/missions
 * A nicely made fan project that presents the data from the same API on the web: https://www.spacexwiki.com/launches
@@ -49,7 +49,7 @@ A launch detail should contain (see the Android app for inspiration on how to pr
 
 API endpoint for launch detail: `https://api.spacexdata.com/v3/launches/{{flight_number}}`
 
-## Paging / Infinite Scroll
+### Paging / Infinite Scroll
 
 Paging or infinite scroll will not be supported for list data. The list data will be fetched at once.
 
@@ -57,7 +57,7 @@ Rationale: It is no small feat to handle data via page segments, considering it 
 
 With data being relatively small and extremely unlikely to grow rapidly (rocket launches just don't happen every day), it makes no sense to deal with paging.
 
-## Data Fetch Strategy
+### Data Fetch Strategy
 
 The list data will be fetched automatically upon displaying the list screen, but refreshed not sooner than after a day's delay (24 hours). Launches are not expected to appear faster than once a day.
 
@@ -66,3 +66,14 @@ In case of error, the fetch is retried every time the list screen is displayed, 
 It is possible to reload data manually any time while visiting the screen.
 
 The detail data is always fetched on demand and never cached locally between screen appearances.
+
+## Developer Notes
+
+To set up and compile the project successfully, Xcode, Ruby, Ruby Gems, and rbenv are required to be installed and configured properly for the current user. Especially make sure that this line is written to your ~/.bash_profile:
+
+`eval "$(rbenv init -)"`
+
+In order to switch to the Ruby version defined by the project automatically. Or call this manually in the terminal:
+`rbenv init -`
+
+If everything is set, just run `./setup.sh` in your cloned repo.
