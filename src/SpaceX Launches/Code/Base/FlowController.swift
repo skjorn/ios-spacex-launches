@@ -1,0 +1,4 @@
+
+protocol FlowController {
+    func start()
+}
