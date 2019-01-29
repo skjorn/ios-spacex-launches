@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		365103FD7030DA326CBBE287 /* Pods_SpaceX_Launches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741940490C8C774E2CBB9A9D /* Pods_SpaceX_Launches.framework */; };
+		F4272BCA2200E8F000A7B591 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4272BC92200E8F000A7B591 /* Service.swift */; };
+		F4272BCD2200EFBF00A7B591 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4272BCC2200EFBF00A7B591 /* CacheService.swift */; };
 		F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439F7D421FBB7D700473164 /* AppDelegate.swift */; };
 		F439F7DC21FBB7D900473164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F439F7DB21FBB7D900473164 /* Assets.xcassets */; };
 		F439F7DF21FBB7D900473164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F439F7DD21FBB7D900473164 /* LaunchScreen.storyboard */; };
@@ -29,6 +31,8 @@
 		741940490C8C774E2CBB9A9D /* Pods_SpaceX_Launches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX_Launches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11D036F7219358CB0D73D9C /* Pods-SpaceX Launches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX Launches.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SpaceX Launches/Pods-SpaceX Launches.release.xcconfig"; sourceTree = "<group>"; };
 		B822285FF50415728D9CAAB1 /* Pods-SpaceX Launches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX Launches.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SpaceX Launches/Pods-SpaceX Launches.debug.xcconfig"; sourceTree = "<group>"; };
+		F4272BC92200E8F000A7B591 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F4272BCC2200EFBF00A7B591 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		F439F7D121FBB7D700473164 /* SpaceX Launches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceX Launches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F439F7D421FBB7D700473164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F439F7DB21FBB7D900473164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F4272BCB2200EFA700A7B591 /* CacheService */ = {
+			isa = PBXGroup;
+			children = (
+				F4272BCC2200EFBF00A7B591 /* CacheService.swift */,
+			);
+			path = CacheService;
+			sourceTree = "<group>";
+		};
 		F439F7C821FBB7D700473164 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 			children = (
 				F4C2114E21FCD31F00D856CC /* FlowController.swift */,
 				F4C2116221FDF88F00D856CC /* String+Extensions.swift */,
+				F4272BC92200E8F000A7B591 /* Service.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -132,6 +145,7 @@
 		F4C2114C21FCB72900D856CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F4272BCB2200EFA700A7B591 /* CacheService */,
 				F4C2115F21FD10BA00D856CC /* ApiService */,
 			);
 			path = Services;
@@ -336,7 +350,9 @@
 				F4C2115C21FCDB6600D856CC /* ListTableViewController.swift in Sources */,
 				F4C2116B21FE625F00D856CC /* MaskedModel.swift in Sources */,
 				F4C2116321FDF88F00D856CC /* String+Extensions.swift in Sources */,
+				F4272BCA2200E8F000A7B591 /* Service.swift in Sources */,
 				F4C2116521FE26EA00D856CC /* ApiService.swift in Sources */,
+				F4272BCD2200EFBF00A7B591 /* CacheService.swift in Sources */,
 				F4C2116121FDF3B800D856CC /* ApiTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

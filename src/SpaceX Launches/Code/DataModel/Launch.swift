@@ -1,17 +1,18 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - LaunchPreview
 
-struct LaunchPreview: Decodable {
-    var flightNumber: Int
-    var missionName: String
-    var launchDate: Date
-    var launchSiteName: String
-    var missionPatchUrl: String
-    var rocketName: String
-    var launchSuccess: Bool
+@objcMembers final class LaunchPreview: Object {
+    dynamic var flightNumber: Int = 0
+    dynamic var missionName: String = ""
+    dynamic var launchDate: Date = Date()
+    dynamic var launchSiteName: String = ""
+    dynamic var missionPatchUrl: String = ""
+    dynamic var rocketName: String = ""
+    dynamic var launchSuccess: Bool = false
 
     enum CodingKeys: String, CodingKey, CaseIterable {
         case flight_number
@@ -35,7 +36,15 @@ struct LaunchPreview: Decodable {
         case rocket_name
     }
     
-    init(from decoder: Decoder) throws {
+    override static func primaryKey() -> String? {
+        return "flight_number"
+    }
+}
+
+extension LaunchPreview: Decodable {
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         flightNumber = try container.decode(Int.self, forKey: .flight_number)
