@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		365103FD7030DA326CBBE287 /* Pods_SpaceX_Launches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741940490C8C774E2CBB9A9D /* Pods_SpaceX_Launches.framework */; };
+		F406472F22024C5B008F0841 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406472E22024C5B008F0841 /* DataService.swift */; };
+		F406473122024D74008F0841 /* Lce.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406473022024D74008F0841 /* Lce.swift */; };
+		F40C0E562206310A00DECF17 /* CacheMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40C0E552206310A00DECF17 /* CacheMeta.swift */; };
 		F4272BCA2200E8F000A7B591 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4272BC92200E8F000A7B591 /* Service.swift */; };
 		F4272BCD2200EFBF00A7B591 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4272BCC2200EFBF00A7B591 /* CacheService.swift */; };
 		F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439F7D421FBB7D700473164 /* AppDelegate.swift */; };
 		F439F7DC21FBB7D900473164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F439F7DB21FBB7D900473164 /* Assets.xcassets */; };
 		F439F7DF21FBB7D900473164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F439F7DD21FBB7D900473164 /* LaunchScreen.storyboard */; };
+		F48C70C52208C96F004802F3 /* Clonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C70C42208C96F004802F3 /* Clonable.swift */; };
+		F48C70C72208DBD9004802F3 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C70C62208DBD9004802F3 /* Logging.swift */; };
 		F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2114E21FCD31F00D856CC /* FlowController.swift */; };
 		F4C2115221FCD37C00D856CC /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2115121FCD37C00D856CC /* MainFlowController.swift */; };
 		F4C2115621FCD4CB00D856CC /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C2115521FCD4CB00D856CC /* List.storyboard */; };
@@ -31,6 +36,9 @@
 		741940490C8C774E2CBB9A9D /* Pods_SpaceX_Launches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX_Launches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11D036F7219358CB0D73D9C /* Pods-SpaceX Launches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX Launches.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SpaceX Launches/Pods-SpaceX Launches.release.xcconfig"; sourceTree = "<group>"; };
 		B822285FF50415728D9CAAB1 /* Pods-SpaceX Launches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX Launches.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SpaceX Launches/Pods-SpaceX Launches.debug.xcconfig"; sourceTree = "<group>"; };
+		F406472E22024C5B008F0841 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F406473022024D74008F0841 /* Lce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lce.swift; sourceTree = "<group>"; };
+		F40C0E552206310A00DECF17 /* CacheMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMeta.swift; sourceTree = "<group>"; };
 		F4272BC92200E8F000A7B591 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F4272BCC2200EFBF00A7B591 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		F439F7D121FBB7D700473164 /* SpaceX Launches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceX Launches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +46,8 @@
 		F439F7DB21FBB7D900473164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F439F7DE21FBB7D900473164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F439F7E021FBB7D900473164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F48C70C42208C96F004802F3 /* Clonable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clonable.swift; sourceTree = "<group>"; };
+		F48C70C62208DBD9004802F3 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		F4C2114E21FCD31F00D856CC /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		F4C2115121FCD37C00D856CC /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		F4C2115521FCD4CB00D856CC /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
@@ -79,6 +89,14 @@
 				741940490C8C774E2CBB9A9D /* Pods_SpaceX_Launches.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F406472D22024BF2008F0841 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				F406472E22024C5B008F0841 /* DataService.swift */,
+			);
+			path = DataService;
 			sourceTree = "<group>";
 		};
 		F4272BCB2200EFA700A7B591 /* CacheService */ = {
@@ -128,6 +146,9 @@
 				F4C2114E21FCD31F00D856CC /* FlowController.swift */,
 				F4C2116221FDF88F00D856CC /* String+Extensions.swift */,
 				F4272BC92200E8F000A7B591 /* Service.swift */,
+				F406473022024D74008F0841 /* Lce.swift */,
+				F48C70C42208C96F004802F3 /* Clonable.swift */,
+				F48C70C62208DBD9004802F3 /* Logging.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -138,6 +159,7 @@
 				F4C2116621FE460900D856CC /* Launch.swift */,
 				F4C2116821FE56AF00D856CC /* Rocket.swift */,
 				F4C2116A21FE625F00D856CC /* MaskedModel.swift */,
+				F40C0E552206310A00DECF17 /* CacheMeta.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -145,8 +167,9 @@
 		F4C2114C21FCB72900D856CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F4272BCB2200EFA700A7B591 /* CacheService */,
 				F4C2115F21FD10BA00D856CC /* ApiService */,
+				F4272BCB2200EFA700A7B591 /* CacheService */,
+				F406472D22024BF2008F0841 /* DataService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -341,16 +364,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C2116921FE56AF00D856CC /* Rocket.swift in Sources */,
+				F406472F22024C5B008F0841 /* DataService.swift in Sources */,
 				F4C2115221FCD37C00D856CC /* MainFlowController.swift in Sources */,
 				F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */,
+				F48C70C72208DBD9004802F3 /* Logging.swift in Sources */,
 				F4C2116721FE460900D856CC /* Launch.swift in Sources */,
 				F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */,
 				F4C2115C21FCDB6600D856CC /* ListTableViewController.swift in Sources */,
 				F4C2116B21FE625F00D856CC /* MaskedModel.swift in Sources */,
+				F406473122024D74008F0841 /* Lce.swift in Sources */,
+				F48C70C52208C96F004802F3 /* Clonable.swift in Sources */,
 				F4C2116321FDF88F00D856CC /* String+Extensions.swift in Sources */,
 				F4272BCA2200E8F000A7B591 /* Service.swift in Sources */,
 				F4C2116521FE26EA00D856CC /* ApiService.swift in Sources */,
 				F4272BCD2200EFBF00A7B591 /* CacheService.swift in Sources */,
+				F40C0E562206310A00DECF17 /* CacheMeta.swift in Sources */,
 				F4C2116121FDF3B800D856CC /* ApiTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

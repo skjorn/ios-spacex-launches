@@ -37,7 +37,7 @@ import RealmSwift
     }
     
     override static func primaryKey() -> String? {
-        return "flight_number"
+        return "flightNumber"
     }
 }
 
