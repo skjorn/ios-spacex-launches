@@ -7,21 +7,24 @@ enum Storyboards: String {
 }
 
 class MainFlowController: FlowController {
-    
-    init(_ window: UIWindow) {
+    init(_ window: UIWindow, dataService: DataService) {
         self.window = window
+        self.dataService = dataService
     }
     
     func start() {
         let navCtrl = UIStoryboard(name: Storyboards.main.rawValue, bundle: nil).instantiateInitialViewController() as! UINavigationController
         window.rootViewController = navCtrl
         window.makeKeyAndVisible()
+        
         let listScreen = UIStoryboard(name: Storyboards.list.rawValue, bundle: nil).instantiateInitialViewController() as! ListTableViewController
         listScreen.flowDelegate = self
+        listScreen.viewModel = ListViewModel(dataService: dataService)
         navCtrl.pushViewController(listScreen, animated: false)
     }
     
     private var window: UIWindow
+    private var dataService: DataService
 }
 
 extension MainFlowController: ListFlowDelegate {

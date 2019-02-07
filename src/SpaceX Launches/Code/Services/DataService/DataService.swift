@@ -6,7 +6,6 @@ import RxSwift
 let INVALIDATION_TIME: TimeInterval = 24 * 60 * 60 // 24 hours
 
 class DataService: Service {
-    
     init(apiService: ApiService, cacheService: CacheService) {
         self.apiService = apiService
         self.cacheService = cacheService

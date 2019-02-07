@@ -16,8 +16,13 @@
 		F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439F7D421FBB7D700473164 /* AppDelegate.swift */; };
 		F439F7DC21FBB7D900473164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F439F7DB21FBB7D900473164 /* Assets.xcassets */; };
 		F439F7DF21FBB7D900473164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F439F7DD21FBB7D900473164 /* LaunchScreen.storyboard */; };
+		F462C5BC220B677B00A1B090 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462C5BB220B677B00A1B090 /* ViewModelType.swift */; };
+		F462C5BE220B6B8500A1B090 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462C5BD220B6B8500A1B090 /* ListViewModel.swift */; };
+		F46FC452220CD96700B649E8 /* LaunchPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FC451220CD96700B649E8 /* LaunchPreviewTableViewCell.swift */; };
 		F48C70C52208C96F004802F3 /* Clonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C70C42208C96F004802F3 /* Clonable.swift */; };
 		F48C70C72208DBD9004802F3 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C70C62208DBD9004802F3 /* Logging.swift */; };
+		F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */; };
+		F4B45B93220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */; };
 		F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2114E21FCD31F00D856CC /* FlowController.swift */; };
 		F4C2115221FCD37C00D856CC /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2115121FCD37C00D856CC /* MainFlowController.swift */; };
 		F4C2115621FCD4CB00D856CC /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C2115521FCD4CB00D856CC /* List.storyboard */; };
@@ -46,8 +51,13 @@
 		F439F7DB21FBB7D900473164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F439F7DE21FBB7D900473164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F439F7E021FBB7D900473164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F462C5BB220B677B00A1B090 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		F462C5BD220B6B8500A1B090 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		F46FC451220CD96700B649E8 /* LaunchPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewTableViewCell.swift; sourceTree = "<group>"; };
 		F48C70C42208C96F004802F3 /* Clonable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clonable.swift; sourceTree = "<group>"; };
 		F48C70C62208DBD9004802F3 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewCompactTableViewCell.swift; sourceTree = "<group>"; };
+		F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewRegularTableViewCell.swift; sourceTree = "<group>"; };
 		F4C2114E21FCD31F00D856CC /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		F4C2115121FCD37C00D856CC /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		F4C2115521FCD4CB00D856CC /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
@@ -140,6 +150,16 @@
 			path = Code;
 			sourceTree = "<group>";
 		};
+		F4B45B8F220A313900BD1929 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */,
+				F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */,
+				F46FC451220CD96700B649E8 /* LaunchPreviewTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		F4C2114921FCB70900D856CC /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +169,7 @@
 				F406473022024D74008F0841 /* Lce.swift */,
 				F48C70C42208C96F004802F3 /* Clonable.swift */,
 				F48C70C62208DBD9004802F3 /* Logging.swift */,
+				F462C5BB220B677B00A1B090 /* ViewModelType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -196,8 +217,10 @@
 		F4C2115321FCD49C00D856CC /* List */ = {
 			isa = PBXGroup;
 			children = (
+				F4B45B8F220A313900BD1929 /* cells */,
 				F4C2115521FCD4CB00D856CC /* List.storyboard */,
 				F4C2115B21FCDB6600D856CC /* ListTableViewController.swift */,
+				F462C5BD220B6B8500A1B090 /* ListViewModel.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -365,17 +388,22 @@
 			files = (
 				F4C2116921FE56AF00D856CC /* Rocket.swift in Sources */,
 				F406472F22024C5B008F0841 /* DataService.swift in Sources */,
+				F462C5BE220B6B8500A1B090 /* ListViewModel.swift in Sources */,
 				F4C2115221FCD37C00D856CC /* MainFlowController.swift in Sources */,
+				F46FC452220CD96700B649E8 /* LaunchPreviewTableViewCell.swift in Sources */,
 				F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */,
 				F48C70C72208DBD9004802F3 /* Logging.swift in Sources */,
 				F4C2116721FE460900D856CC /* Launch.swift in Sources */,
 				F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */,
 				F4C2115C21FCDB6600D856CC /* ListTableViewController.swift in Sources */,
+				F462C5BC220B677B00A1B090 /* ViewModelType.swift in Sources */,
 				F4C2116B21FE625F00D856CC /* MaskedModel.swift in Sources */,
 				F406473122024D74008F0841 /* Lce.swift in Sources */,
+				F4B45B93220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift in Sources */,
 				F48C70C52208C96F004802F3 /* Clonable.swift in Sources */,
 				F4C2116321FDF88F00D856CC /* String+Extensions.swift in Sources */,
 				F4272BCA2200E8F000A7B591 /* Service.swift in Sources */,
+				F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */,
 				F4C2116521FE26EA00D856CC /* ApiService.swift in Sources */,
 				F4272BCD2200EFBF00A7B591 /* CacheService.swift in Sources */,
 				F40C0E562206310A00DECF17 /* CacheMeta.swift in Sources */,

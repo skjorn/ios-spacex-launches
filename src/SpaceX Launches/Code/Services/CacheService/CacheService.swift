@@ -6,7 +6,6 @@ import RxSwift
 
 // The service is thread safe, i.e. all methods can be called from any thread.
 class CacheService: Service {
-    
     func start() {
         onMainThread {
             // No caching, no game. There isn't much we can do without data. So just crash on failure.

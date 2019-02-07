@@ -5,7 +5,6 @@ import Moya
 import RxSwift
 
 class ApiService: Service {
-    
     func start() {
         provider = MoyaProvider()
     }
