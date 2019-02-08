@@ -8,10 +8,8 @@ protocol ListFlowDelegate {
     func showDetail(withId id: Int)
 }
 
-// FIXME: no data view
 // FIXME: manual refresh
 // FIXME: error message
-// FIXME: loading
 class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +79,22 @@ class ListTableViewController: UITableViewController {
                 cell.configure(for: element)
                 return cell
             }
+            .disposed(by: launchesDisposeBag!)
+        
+        viewModel!.output?.launches
+            .asObservable()
+            .subscribe(onNext: { lce in
+                guard lce.data == nil || lce.data!.isEmpty else {
+                    return
+                }
+                
+                if lce.loading {
+                    self.tableView.backgroundView = UIView.loadFromNib(named: Loader.nameOfClass)
+                }
+                else {
+                    self.tableView.backgroundView = UIView.loadFromNib(named: EmptyView.nameOfClass)
+                }
+            })
             .disposed(by: launchesDisposeBag!)
     }
     

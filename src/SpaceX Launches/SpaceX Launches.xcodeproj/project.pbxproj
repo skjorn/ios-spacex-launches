@@ -21,6 +21,12 @@
 		F46FC452220CD96700B649E8 /* LaunchPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FC451220CD96700B649E8 /* LaunchPreviewTableViewCell.swift */; };
 		F48C70C52208C96F004802F3 /* Clonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C70C42208C96F004802F3 /* Clonable.swift */; };
 		F48C70C72208DBD9004802F3 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C70C62208DBD9004802F3 /* Logging.swift */; };
+		F490B5E4220E1F7C00B55D42 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F490B5E3220E1F7C00B55D42 /* EmptyView.xib */; };
+		F490B5E7220E226300B55D42 /* Loader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F490B5E6220E226300B55D42 /* Loader.xib */; };
+		F490B5E9220E280200B55D42 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5E8220E280200B55D42 /* UIView+Extensions.swift */; };
+		F490B5EB220E2D2000B55D42 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5EA220E2D2000B55D42 /* EmptyView.swift */; };
+		F490B5ED220E2E0100B55D42 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5EC220E2E0100B55D42 /* NSObject+Extensions.swift */; };
+		F490B5EF220E305F00B55D42 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5EE220E305F00B55D42 /* Loader.swift */; };
 		F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */; };
 		F4B45B93220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */; };
 		F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2114E21FCD31F00D856CC /* FlowController.swift */; };
@@ -56,6 +62,12 @@
 		F46FC451220CD96700B649E8 /* LaunchPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewTableViewCell.swift; sourceTree = "<group>"; };
 		F48C70C42208C96F004802F3 /* Clonable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clonable.swift; sourceTree = "<group>"; };
 		F48C70C62208DBD9004802F3 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		F490B5E3220E1F7C00B55D42 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		F490B5E6220E226300B55D42 /* Loader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loader.xib; sourceTree = "<group>"; };
+		F490B5E8220E280200B55D42 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		F490B5EA220E2D2000B55D42 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		F490B5EC220E2E0100B55D42 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
+		F490B5EE220E305F00B55D42 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewCompactTableViewCell.swift; sourceTree = "<group>"; };
 		F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewRegularTableViewCell.swift; sourceTree = "<group>"; };
 		F4C2114E21FCD31F00D856CC /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
@@ -150,6 +162,33 @@
 			path = Code;
 			sourceTree = "<group>";
 		};
+		F490B5E1220E1F4A00B55D42 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				F490B5E5220E223400B55D42 /* Loader */,
+				F490B5E2220E1F5C00B55D42 /* EmptyView */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		F490B5E2220E1F5C00B55D42 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				F490B5E3220E1F7C00B55D42 /* EmptyView.xib */,
+				F490B5EA220E2D2000B55D42 /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		F490B5E5220E223400B55D42 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				F490B5E6220E226300B55D42 /* Loader.xib */,
+				F490B5EE220E305F00B55D42 /* Loader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		F4B45B8F220A313900BD1929 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +209,8 @@
 				F48C70C42208C96F004802F3 /* Clonable.swift */,
 				F48C70C62208DBD9004802F3 /* Logging.swift */,
 				F462C5BB220B677B00A1B090 /* ViewModelType.swift */,
+				F490B5E8220E280200B55D42 /* UIView+Extensions.swift */,
+				F490B5EC220E2E0100B55D42 /* NSObject+Extensions.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -217,6 +258,7 @@
 		F4C2115321FCD49C00D856CC /* List */ = {
 			isa = PBXGroup;
 			children = (
+				F490B5E1220E1F4A00B55D42 /* views */,
 				F4B45B8F220A313900BD1929 /* cells */,
 				F4C2115521FCD4CB00D856CC /* List.storyboard */,
 				F4C2115B21FCDB6600D856CC /* ListTableViewController.swift */,
@@ -304,8 +346,10 @@
 			files = (
 				F439F7DF21FBB7D900473164 /* LaunchScreen.storyboard in Resources */,
 				F4C2115A21FCD96600D856CC /* Main.storyboard in Resources */,
+				F490B5E7220E226300B55D42 /* Loader.xib in Resources */,
 				F439F7DC21FBB7D900473164 /* Assets.xcassets in Resources */,
 				F4C2115621FCD4CB00D856CC /* List.storyboard in Resources */,
+				F490B5E4220E1F7C00B55D42 /* EmptyView.xib in Resources */,
 				F4C2115821FCD57B00D856CC /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +434,8 @@
 				F406472F22024C5B008F0841 /* DataService.swift in Sources */,
 				F462C5BE220B6B8500A1B090 /* ListViewModel.swift in Sources */,
 				F4C2115221FCD37C00D856CC /* MainFlowController.swift in Sources */,
+				F490B5EB220E2D2000B55D42 /* EmptyView.swift in Sources */,
+				F490B5ED220E2E0100B55D42 /* NSObject+Extensions.swift in Sources */,
 				F46FC452220CD96700B649E8 /* LaunchPreviewTableViewCell.swift in Sources */,
 				F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */,
 				F48C70C72208DBD9004802F3 /* Logging.swift in Sources */,
@@ -399,12 +445,14 @@
 				F462C5BC220B677B00A1B090 /* ViewModelType.swift in Sources */,
 				F4C2116B21FE625F00D856CC /* MaskedModel.swift in Sources */,
 				F406473122024D74008F0841 /* Lce.swift in Sources */,
+				F490B5E9220E280200B55D42 /* UIView+Extensions.swift in Sources */,
 				F4B45B93220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift in Sources */,
 				F48C70C52208C96F004802F3 /* Clonable.swift in Sources */,
 				F4C2116321FDF88F00D856CC /* String+Extensions.swift in Sources */,
 				F4272BCA2200E8F000A7B591 /* Service.swift in Sources */,
 				F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */,
 				F4C2116521FE26EA00D856CC /* ApiService.swift in Sources */,
+				F490B5EF220E305F00B55D42 /* Loader.swift in Sources */,
 				F4272BCD2200EFBF00A7B591 /* CacheService.swift in Sources */,
 				F40C0E562206310A00DECF17 /* CacheMeta.swift in Sources */,
 				F4C2116121FDF3B800D856CC /* ApiTarget.swift in Sources */,
