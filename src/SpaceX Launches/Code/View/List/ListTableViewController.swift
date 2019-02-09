@@ -9,7 +9,6 @@ protocol ListFlowDelegate {
     func showError(message: String)
 }
 
-// FIXME: manual refresh
 class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +16,8 @@ class ListTableViewController: UITableViewController {
         // These are set by default to self. We let Rx manage the table view, so these need to be cleared.
         tableView.delegate = nil
         tableView.dataSource = nil
+        
+        refreshControl?.addTarget(self, action: #selector(handleRefresh(sender:)), for: .valueChanged)
         
         NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main, using: handleDidEnterBackground)
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: handleWillEnterForeground)
@@ -61,6 +62,11 @@ class ListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @objc private func handleRefresh(sender: UIRefreshControl) {
+        requestLaunches.onNext(true)
+        sender.endRefreshing()
+    }
+    
     private func bindData() {
         guard launchesDisposeBag == nil else {
             return
@@ -72,6 +78,7 @@ class ListTableViewController: UITableViewController {
         
         viewModel!.output?.launches
             .asObservable()
+            .filter({ !$0.hasError })
             .map({ $0.data ?? [] })
             .bind(to: tableView.rx.items) { [weak self] tableView, row, element in
                 let identifier = self?.traitCollection.horizontalSizeClass == .regular
