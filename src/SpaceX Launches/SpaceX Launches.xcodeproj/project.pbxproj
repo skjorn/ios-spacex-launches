@@ -27,6 +27,8 @@
 		F490B5EB220E2D2000B55D42 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5EA220E2D2000B55D42 /* EmptyView.swift */; };
 		F490B5ED220E2E0100B55D42 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5EC220E2E0100B55D42 /* NSObject+Extensions.swift */; };
 		F490B5EF220E305F00B55D42 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5EE220E305F00B55D42 /* Loader.swift */; };
+		F490B5F2220E3D0100B55D42 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F490B5F1220E3D0100B55D42 /* ErrorView.xib */; };
+		F490B5F4220E3D8C00B55D42 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5F3220E3D8C00B55D42 /* ErrorView.swift */; };
 		F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */; };
 		F4B45B93220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */; };
 		F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2114E21FCD31F00D856CC /* FlowController.swift */; };
@@ -68,6 +70,8 @@
 		F490B5EA220E2D2000B55D42 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F490B5EC220E2E0100B55D42 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		F490B5EE220E305F00B55D42 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		F490B5F1220E3D0100B55D42 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		F490B5F3220E3D8C00B55D42 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewCompactTableViewCell.swift; sourceTree = "<group>"; };
 		F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewRegularTableViewCell.swift; sourceTree = "<group>"; };
 		F4C2114E21FCD31F00D856CC /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,23 @@
 			path = Loader;
 			sourceTree = "<group>";
 		};
+		F490B5F0220E3CB200B55D42 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				F490B5F1220E3D0100B55D42 /* ErrorView.xib */,
+				F490B5F3220E3D8C00B55D42 /* ErrorView.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
+		F490B5F5220E3F5400B55D42 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				F490B5F0220E3CB200B55D42 /* ErrorView */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		F4B45B8F220A313900BD1929 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +270,7 @@
 		F4C2115021FCD34B00D856CC /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F490B5F5220E3F5400B55D42 /* views */,
 				F4C2115121FCD37C00D856CC /* MainFlowController.swift */,
 				F4C2115921FCD96600D856CC /* Main.storyboard */,
 			);
@@ -348,6 +370,7 @@
 				F4C2115A21FCD96600D856CC /* Main.storyboard in Resources */,
 				F490B5E7220E226300B55D42 /* Loader.xib in Resources */,
 				F439F7DC21FBB7D900473164 /* Assets.xcassets in Resources */,
+				F490B5F2220E3D0100B55D42 /* ErrorView.xib in Resources */,
 				F4C2115621FCD4CB00D856CC /* List.storyboard in Resources */,
 				F490B5E4220E1F7C00B55D42 /* EmptyView.xib in Resources */,
 				F4C2115821FCD57B00D856CC /* Detail.storyboard in Resources */,
@@ -437,6 +460,7 @@
 				F490B5EB220E2D2000B55D42 /* EmptyView.swift in Sources */,
 				F490B5ED220E2E0100B55D42 /* NSObject+Extensions.swift in Sources */,
 				F46FC452220CD96700B649E8 /* LaunchPreviewTableViewCell.swift in Sources */,
+				F490B5F4220E3D8C00B55D42 /* ErrorView.swift in Sources */,
 				F439F7D521FBB7D700473164 /* AppDelegate.swift in Sources */,
 				F48C70C72208DBD9004802F3 /* Logging.swift in Sources */,
 				F4C2116721FE460900D856CC /* Launch.swift in Sources */,

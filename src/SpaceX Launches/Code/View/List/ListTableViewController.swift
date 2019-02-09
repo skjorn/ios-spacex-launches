@@ -6,10 +6,10 @@ import RxCocoa
 
 protocol ListFlowDelegate {
     func showDetail(withId id: Int)
+    func showError(message: String)
 }
 
 // FIXME: manual refresh
-// FIXME: error message
 class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,11 +68,13 @@ class ListTableViewController: UITableViewController {
         
         launchesDisposeBag = DisposeBag()
         
+        // Table items
+        
         viewModel!.output?.launches
             .asObservable()
             .map({ $0.data ?? [] })
-            .bind(to: tableView.rx.items) { tableView, row, element in
-                let identifier = self.traitCollection.horizontalSizeClass == .regular
+            .bind(to: tableView.rx.items) { [weak self] tableView, row, element in
+                let identifier = self?.traitCollection.horizontalSizeClass == .regular
                     ? LaunchPreviewRegularTableViewCell.identifier
                     : LaunchPreviewCompactTableViewCell.identifier
                 let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! LaunchPreviewTableViewCell
@@ -81,10 +83,28 @@ class ListTableViewController: UITableViewController {
             }
             .disposed(by: launchesDisposeBag!)
         
+        // Loading indicators, error and empty data view
+        
         viewModel!.output?.launches
             .asObservable()
-            .subscribe(onNext: { lce in
+            .subscribe(onNext: { [weak self] lce in
+                guard let self = self else {
+                    return
+                }
+                
+                if lce.loading {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                }
+                else {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+                
+                if lce.hasError {
+                    self.flowDelegate?.showError(message: "Failed to download data")
+                }
+                
                 guard lce.data == nil || lce.data!.isEmpty else {
+                    self.tableView.backgroundView = nil
                     return
                 }
                 

@@ -18,8 +18,6 @@ class ApiService: Service {
             return Single<ResultType>.error(ServiceError.serviceStopped)
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         return provider.rx.request(SpaceXApiTarget(token: token, filter: filter))
             .flatMap({ response in
                 return Single<ResultType>.create { single in
@@ -30,8 +28,6 @@ class ApiService: Service {
                     catch {
                         single(.error(error))
                     }
-                    
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     
                     return Disposables.create()
                 }
