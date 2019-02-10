@@ -15,9 +15,10 @@ extension MaskedModel {
     
     static private func getFilter(for keys: [CodingKey], withPrefix prefix: String) -> String {
         return keys.map({ key in
-            let currentPath = prefix + "/\(key.stringValue)"
+            let currentPath = prefix.isEmpty ? key.stringValue : prefix + "/\(key.stringValue)"
             if let childrenKeys = childrenCodingKeys(for: key) {
-                return getFilter(for: childrenKeys, withPrefix: currentPath)
+                let childrenFilter = getFilter(for: childrenKeys, withPrefix: "")
+                return currentPath + (childrenFilter.isEmpty ? "" : "(\(childrenFilter))")
             }
             else {
                 return currentPath

@@ -29,10 +29,25 @@ class ListTableViewController: UITableViewController {
 
         bindData()
         requestLaunches.onNext(false)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else {
+                    return
+                }
+                
+                let cell = self.tableView.cellForRow(at: indexPath) as? LaunchPreviewTableViewCell
+                if let cell = cell {
+                    self.flowDelegate?.showDetail(withId: cell.launchId)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        flowDelegate?.showDetail(withId: indexPath.row)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        disposeBag = DisposeBag()
     }
     
     var flowDelegate: ListFlowDelegate? = nil
@@ -127,4 +142,5 @@ class ListTableViewController: UITableViewController {
     
     private var launchesDisposeBag: DisposeBag? = nil
     private var requestLaunches = PublishSubject<Bool>()
+    private var disposeBag = DisposeBag()
 }

@@ -17,7 +17,7 @@ class ApiService: Service {
         guard let provider = provider else {
             return Single<ResultType>.error(ServiceError.serviceStopped)
         }
-        
+
         return provider.rx.request(SpaceXApiTarget(token: token, filter: filter))
             .flatMap({ response in
                 return Single<ResultType>.create { single in

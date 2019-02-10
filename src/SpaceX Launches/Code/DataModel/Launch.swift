@@ -116,7 +116,7 @@ struct Launch: Decodable {
     }
     
     enum LinksCodingKeys: String, CodingKey, CaseIterable {
-        case mission_patch_small
+        case mission_patch
     }
     
     init(from decoder: Decoder) throws {
@@ -135,7 +135,7 @@ struct Launch: Decodable {
         launchSiteName = try launchSiteContainer.decode(String.self, forKey: .site_name_long)
         
         let linksContainer = try container.nestedContainer(keyedBy: LinksCodingKeys.self, forKey: .links)
-        missionPatchUrl = try linksContainer.decode(String.self, forKey: .mission_patch_small)
+        missionPatchUrl = try linksContainer.decode(String.self, forKey: .mission_patch)
     }
 }
 

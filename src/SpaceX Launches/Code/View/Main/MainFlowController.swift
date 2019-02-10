@@ -36,7 +36,8 @@ class MainFlowController: FlowController {
 
 extension MainFlowController: ListFlowDelegate {
     func showDetail(withId id: Int) {
-        let detailScreen = UIStoryboard(name: Storyboards.detail.rawValue, bundle: nil).instantiateInitialViewController()!
+        let detailScreen = UIStoryboard(name: Storyboards.detail.rawValue, bundle: nil).instantiateInitialViewController() as! DetailViewController
+        detailScreen.viewModel = DetailViewModel(flightNumber: id, dataService: dataService)
         if let navCtrl = window.rootViewController as? UINavigationController {
             navCtrl.pushViewController(detailScreen, animated: true)
         }

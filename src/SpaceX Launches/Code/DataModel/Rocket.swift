@@ -60,7 +60,7 @@ extension Rocket: MaskedModel {
 struct Payload: Decodable {
     var id: String
     var type: String
-    var mass: Int
+    var mass: Int?
     var orbitType: String
     var customers: [String]
 
@@ -77,7 +77,7 @@ struct Payload: Decodable {
         
         id = try container.decode(String.self, forKey: .payload_id)
         type = try container.decode(String.self, forKey: .payload_type)
-        mass = try container.decode(Int.self, forKey: .payload_mass_kg)
+        mass = try container.decodeIfPresent(Int.self, forKey: .payload_mass_kg)
         orbitType = try container.decode(String.self, forKey: .orbit)
         customers = try container.decode([String].self, forKey: .customers)
     }

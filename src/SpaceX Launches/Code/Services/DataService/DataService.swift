@@ -56,7 +56,7 @@ class DataService: Service {
         let fetch = shouldFetch
             .filter({ $0 })
             .flatMap({ _ in
-                return self.apiService.request(.getPastLaunches).asObservable()
+                return self.apiService.request(.getPastLaunches, filter: LaunchPreview.filter).asObservable()
                     .map({ (result: [LaunchPreview]) -> Lce<[LaunchPreview]> in
                         return Lce(loading: false, data: result)
                     })
@@ -129,7 +129,7 @@ class DataService: Service {
     
     func getLaunchDetail(for flightNumber: Int) -> Observable<Lce<Launch>> {
         log("--- Get launch \(flightNumber) detail requested")
-        return apiService.request(SpaceXApi.getOneLaunch(id: flightNumber))
+        return apiService.request(SpaceXApi.getOneLaunch(id: flightNumber), filter: Launch.filter)
             .asObservable()
             .map({ data in
                 return Lce(loading: false, data: data)
