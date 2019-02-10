@@ -11,6 +11,7 @@ enum StorageKey: String {
 class ListViewModel: ViewModelType {
     struct Input {
         let requestLaunches: Signal<Bool>
+        let search: Driver<String?>
     }
     
     struct Output {
@@ -32,10 +33,26 @@ class ListViewModel: ViewModelType {
                 let sortingParams = getSortingParams(for: self?.sortKey ?? .launchDate)
                 return (request, sortingParams)
             })
+        
+        let search = input.search.asObservable()
 
-        let launches = dataService.getLaunches(requestSortedLaunches).asSignal { error in
-            return Signal.just(Lce<[LaunchPreview]>(error: error))
-        }
+        let launches = Observable.combineLatest(
+                dataService.getLaunches(requestSortedLaunches).observeOn(MainScheduler.instance),
+                search,
+                resultSelector: { lce, searchTerm -> Lce<[LaunchPreview]> in
+                    guard let data = lce.data else {
+                        return lce
+                    }
+                    
+                    var filteredLce = lce
+                    filteredLce.data = filterLaunches(data, searchTerm: searchTerm)
+                    
+                    return filteredLce
+                }
+            )
+            .asSignal { error in
+                return Signal.just(Lce<[LaunchPreview]>(error: error))
+            }
         
         output = Output(launches: launches)
         

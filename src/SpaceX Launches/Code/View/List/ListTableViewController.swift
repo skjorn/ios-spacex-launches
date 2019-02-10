@@ -60,7 +60,8 @@ class ListTableViewController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(handleRefresh(sender:)), for: .valueChanged)
 
         addSortMenu()
-        
+        addSearchBar()
+
         NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main, using: handleDidEnterBackground)
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: handleWillEnterForeground)
         NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: handleOrientationDidChange)
@@ -98,7 +99,8 @@ class ListTableViewController: UITableViewController {
         didSet {
             if let viewModel = viewModel {
                 let requestLaunchesSignal = requestLaunches.asSignal(onErrorSignalWith: Signal.empty())
-                let input = ListViewModel.Input(requestLaunches: requestLaunchesSignal)
+                let searchDriver = requestSearch.asDriver(onErrorDriveWith: Driver.empty())
+                let input = ListViewModel.Input(requestLaunches: requestLaunchesSignal, search: searchDriver)
                 viewModel.transform(input: input)
             }
         }
@@ -179,6 +181,10 @@ class ListTableViewController: UITableViewController {
                 }
             })
             .disposed(by: launchesDisposeBag!)
+        
+        // Initialize search
+        
+        requestSearch.onNext(navigationItem.searchController?.searchBar.text)
     }
     
     private func addSortMenu() {
@@ -224,9 +230,49 @@ class ListTableViewController: UITableViewController {
             .disposed(by: disposeBag)
     }
     
+    private func addSearchBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+        navigationItem.leftBarButtonItem!.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                
+                let searchCtrl = UISearchController(searchResultsController: nil)
+                searchCtrl.searchResultsUpdater = self
+                searchCtrl.obscuresBackgroundDuringPresentation = false
+                self.navigationItem.searchController = searchCtrl
+                self.navigationItem.searchController!.searchBar.becomeFirstResponder()
+                self.navigationItem.searchController!.isActive = true
+                
+                searchCtrl.rx.willDismiss
+                    .subscribe(onNext: { [weak self] in
+                        self?.navigationItem.searchController = nil
+                        self?.requestSearch.onNext(nil)
+                    })
+                    .disposed(by: self.disposeBag)
+                
+                searchCtrl.searchBar.rx.cancelButtonClicked
+                    .subscribe(onNext: { [weak self] in
+                        self?.navigationItem.searchController = nil
+                        self?.requestSearch.onNext(nil)
+                    })
+                    .disposed(by: self.disposeBag)
+            })
+            .disposed(by: disposeBag)
+        definesPresentationContext = true
+    }
+    
     private var launchesDisposeBag: DisposeBag? = nil
     private var requestLaunches = PublishSubject<Bool>()
     private var onscreenDisposeBag = DisposeBag()
     private var disposeBag = DisposeBag()
     private var dataSource: RxTableViewSectionedReloadDataSource<ListTableSectionModel>! = nil
+    private var requestSearch = PublishSubject<String?>()
+}
+
+extension ListTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        requestSearch.onNext(searchController.searchBar.text)
+    }
 }
