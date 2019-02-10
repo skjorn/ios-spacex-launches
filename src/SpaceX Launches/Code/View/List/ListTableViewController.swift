@@ -3,11 +3,32 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
+
+// MARK: - Flow Delegate
 
 protocol ListFlowDelegate {
     func showDetail(withId id: Int)
     func showError(message: String)
 }
+
+// MARK: - Table section model
+
+struct ListTableSectionModel {
+    var header: String
+    var items: [LaunchPreview]
+}
+
+extension ListTableSectionModel: SectionModelType {
+    typealias Item = LaunchPreview
+    
+    init(original: ListTableSectionModel, items: [LaunchPreview]) {
+        self = original
+        self.items = items
+    }
+}
+
+// MARK: - View Controller
 
 class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
@@ -17,7 +38,28 @@ class ListTableViewController: UITableViewController {
         tableView.delegate = nil
         tableView.dataSource = nil
         
+        dataSource = RxTableViewSectionedReloadDataSource<ListTableSectionModel>(
+            configureCell: { [weak self] dataSource, tableView, indexPath, launchPreview in
+                let identifier = self?.traitCollection.horizontalSizeClass == .regular
+                    ? LaunchPreviewRegularTableViewCell.identifier
+                    : LaunchPreviewCompactTableViewCell.identifier
+                let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! LaunchPreviewTableViewCell
+                cell.configure(for: launchPreview)
+                return cell
+            },
+            
+            titleForHeaderInSection: { dataSource, index in
+                guard index < dataSource.sectionModels.count else {
+                    return nil
+                }
+                
+                return dataSource.sectionModels[index].header
+            }
+        )
+        
         refreshControl?.addTarget(self, action: #selector(handleRefresh(sender:)), for: .valueChanged)
+
+        addSortMenu()
         
         NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main, using: handleDidEnterBackground)
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: handleWillEnterForeground)
@@ -41,13 +83,13 @@ class ListTableViewController: UITableViewController {
                     self.flowDelegate?.showDetail(withId: cell.launchId)
                 }
             })
-            .disposed(by: disposeBag)
+            .disposed(by: onscreenDisposeBag)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        disposeBag = DisposeBag()
+        onscreenDisposeBag = DisposeBag()
     }
     
     var flowDelegate: ListFlowDelegate? = nil
@@ -90,19 +132,18 @@ class ListTableViewController: UITableViewController {
         launchesDisposeBag = DisposeBag()
         
         // Table items
-        
+
         viewModel!.output?.launches
             .asObservable()
             .filter({ !$0.hasError })
-            .map({ $0.data ?? [] })
-            .bind(to: tableView.rx.items) { [weak self] tableView, row, element in
-                let identifier = self?.traitCollection.horizontalSizeClass == .regular
-                    ? LaunchPreviewRegularTableViewCell.identifier
-                    : LaunchPreviewCompactTableViewCell.identifier
-                let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! LaunchPreviewTableViewCell
-                cell.configure(for: element)
-                return cell
-            }
+            .map({ [weak self] in
+                guard let self = self else {
+                    return []
+                }
+                
+                return sortLaunches(for: self.viewModel!.sortKey, using: $0.data ?? [])
+            })
+            .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: launchesDisposeBag!)
         
         // Loading indicators, error and empty data view
@@ -140,7 +181,52 @@ class ListTableViewController: UITableViewController {
             .disposed(by: launchesDisposeBag!)
     }
     
+    private func addSortMenu() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem!.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let menu = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
+                
+                menu.addAction(
+                    UIAlertAction(title: "Launch Date", style: .default) { [weak self] _ in
+                        self?.viewModel!.sortKey = .launchDate
+                        self?.requestLaunches.onNext(false)
+                    }
+                )
+                
+                menu.addAction(
+                    UIAlertAction(title: "Launch Site", style: .default) { [weak self] _ in
+                        self?.viewModel!.sortKey = .launchSite
+                        self?.requestLaunches.onNext(false)
+                    }
+                )
+                
+                menu.addAction(
+                    UIAlertAction(title: "Rocket Name", style: .default) { [weak self] _ in
+                        self?.viewModel!.sortKey = .rocketName
+                        self?.requestLaunches.onNext(false)
+                    }
+                )
+                
+                menu.addAction(
+                    UIAlertAction(title: "Launch Status", style: .default) { [weak self] _ in
+                        self?.viewModel!.sortKey = .launchStatus
+                        self?.requestLaunches.onNext(false)
+                    }
+                )
+                
+                menu.addAction(
+                    UIAlertAction(title: "Cancel", style: .cancel)
+                )
+                
+                self?.present(menu, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private var launchesDisposeBag: DisposeBag? = nil
     private var requestLaunches = PublishSubject<Bool>()
+    private var onscreenDisposeBag = DisposeBag()
     private var disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<ListTableSectionModel>! = nil
 }

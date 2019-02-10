@@ -8,10 +8,10 @@ import RealmSwift
     typealias Value = CacheMeta
     
     enum Id: Int {
-        case Default = 1
+        case `default` = 1
     }
     
-    dynamic var id = Id.Default.rawValue
+    dynamic var id = Id.default.rawValue
     dynamic var launchesTimestamp: Date? = nil
     
     override static func primaryKey() -> String? {

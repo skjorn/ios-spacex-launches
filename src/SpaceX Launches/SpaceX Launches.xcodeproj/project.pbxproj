@@ -33,6 +33,7 @@
 		F490B5FA220F6F1400B55D42 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5F9220F6F1400B55D42 /* DetailViewController.swift */; };
 		F490B5FC220F714400B55D42 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5FB220F714400B55D42 /* DetailViewModel.swift */; };
 		F490B5FE220FA68A00B55D42 /* PayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490B5FD220FA68A00B55D42 /* PayloadView.swift */; };
+		F491166922104CA0002BA1CB /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491166822104CA0002BA1CB /* Sorting.swift */; };
 		F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */; };
 		F4B45B93220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */; };
 		F4C2114F21FCD31F00D856CC /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2114E21FCD31F00D856CC /* FlowController.swift */; };
@@ -80,6 +81,7 @@
 		F490B5F9220F6F1400B55D42 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F490B5FB220F714400B55D42 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F490B5FD220FA68A00B55D42 /* PayloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadView.swift; sourceTree = "<group>"; };
+		F491166822104CA0002BA1CB /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
 		F4B45B90220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewCompactTableViewCell.swift; sourceTree = "<group>"; };
 		F4B45B92220A326600BD1929 /* LaunchPreviewRegularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewRegularTableViewCell.swift; sourceTree = "<group>"; };
 		F4C2114E21FCD31F00D856CC /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				F4C2115521FCD4CB00D856CC /* List.storyboard */,
 				F4C2115B21FCDB6600D856CC /* ListTableViewController.swift */,
 				F462C5BD220B6B8500A1B090 /* ListViewModel.swift */,
+				F491166822104CA0002BA1CB /* Sorting.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				F490B5FE220FA68A00B55D42 /* PayloadView.swift in Sources */,
 				F48C70C52208C96F004802F3 /* Clonable.swift in Sources */,
 				F4C2116321FDF88F00D856CC /* String+Extensions.swift in Sources */,
+				F491166922104CA0002BA1CB /* Sorting.swift in Sources */,
 				F4272BCA2200E8F000A7B591 /* Service.swift in Sources */,
 				F4B45B91220A317900BD1929 /* LaunchPreviewCompactTableViewCell.swift in Sources */,
 				F4C2116521FE26EA00D856CC /* ApiService.swift in Sources */,
