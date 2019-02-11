@@ -26,7 +26,6 @@
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fFn-Rm-MyD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ljp-zx-jpl"/>
-                <constraint firstItem="fFn-Rm-MyD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iQQ-fu-uSF"/>
                 <constraint firstItem="fFn-Rm-MyD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vl5-CY-5nr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fFn-Rm-MyD" secondAttribute="trailing" id="zW7-yt-Euc"/>
             </constraints>

@@ -21,17 +21,18 @@ class LaunchPreviewCompactTableViewCell: LaunchPreviewTableViewCell {
         let pictureUrl = URL(string: launchPreview.missionPatchUrl)!
         picture.af_setImage(withURL: pictureUrl)
 
-        flightNumber.text = "#\(launchPreview.flightNumber)"
+        let flightNumberFormat = NSLocalizedString("general.flightNumberFormat", value: "#%d", comment: "#999")
+        flightNumber.text = String(format: flightNumberFormat, launchPreview.flightNumber)
         mission.text = launchPreview.missionName
         launchDate.text = DateFormatter.localizedString(from: launchPreview.launchDate, dateStyle: .medium, timeStyle: .none)
         launchSite.text = launchPreview.launchSiteName
         
         if launchPreview.launchSuccess {
-            status.text = "Success"
+            status.text = NSLocalizedString("general.success", value: "Success", comment: "")
             status.textColor = UIColor(named: "Success")
         }
         else {
-            status.text = "Failure"
+            status.text = NSLocalizedString("general.failure", value: "Failure", comment: "")
             status.textColor = UIColor(named: "Failure")
         }
         

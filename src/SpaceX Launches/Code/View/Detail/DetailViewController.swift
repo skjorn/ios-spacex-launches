@@ -65,23 +65,26 @@ class DetailViewController: UIViewController {
     
     private func configureContent(for launchDetail: Launch) {
         missionName.text = launchDetail.missionName
-        flightNumber.text = "#\(launchDetail.flightNumber)"
         launchSite.text = launchDetail.launchSiteName
         rocketName.text = launchDetail.rocket.name
         rocketType.text = launchDetail.rocket.type
+        
+        let flightNumberFormat = NSLocalizedString("general.flightNumberFormat", value: "#%d", comment: "#999")
+        flightNumber.text = String(format: flightNumberFormat, launchDetail.flightNumber)
         
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.dateStyle = .long
         formatter.timeStyle = .short
-        launchDate.text = "\(formatter.string(from: launchDetail.launchDate)) UTC"
+        let utcDateFormat = NSLocalizedString("general.utcDateFormat", value: "%@ UTC", comment: "January 1, 2019 20:00 UTC")
+        launchDate.text = String(format: utcDateFormat, formatter.string(from: launchDetail.launchDate))
         
         if launchDetail.launchSuccess {
-            launchStatus.text = "Success"
+            launchStatus.text = NSLocalizedString("general.success", value: "Success", comment: "")
             launchStatus.textColor = UIColor(named: "Success")
         }
         else {
-            launchStatus.text = "Failure"
+            launchStatus.text = NSLocalizedString("general.failure", value: "Failure", comment: "")
             launchStatus.textColor = UIColor(named: "Failure")
         }
         statusColor = launchStatus.textColor

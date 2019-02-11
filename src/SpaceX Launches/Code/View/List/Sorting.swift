@@ -70,7 +70,9 @@ fileprivate func sortLaunchesByStatus(_ data: [LaunchPreview]) -> [ListTableSect
     return sortLaunches(
         data,
         withSectionKey: { $0.launchSuccess },
-        withSectionTitle: { lp, _ in "\(lp.launchSuccess ? "Success" : "Failure")" }
+        withSectionTitle: { lp, _ in
+            "\(lp.launchSuccess ? NSLocalizedString("general.success", comment: "") : NSLocalizedString("general.failure", comment: ""))"
+        }
     )
 }
 

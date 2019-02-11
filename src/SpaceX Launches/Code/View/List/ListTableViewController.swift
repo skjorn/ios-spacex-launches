@@ -165,7 +165,8 @@ class ListTableViewController: UITableViewController {
                 }
                 
                 if lce.hasError {
-                    self.flowDelegate?.showError(message: "Failed to download data")
+                    let errorMessage = NSLocalizedString("list.listTableViewController.downloadError", value: "Failed to download data", comment: "")
+                    self.flowDelegate?.showError(message: errorMessage)
                 }
                 
                 guard lce.data == nil || lce.data!.isEmpty else {
@@ -188,41 +189,49 @@ class ListTableViewController: UITableViewController {
     }
     
     private func addSortMenu() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: nil, action: nil)
+        let sortButtonLabel = NSLocalizedString("list.listTableViewController.sortButton", value: "Sort", comment: "Navigation button label")
+        let sortTitle = NSLocalizedString("list.listTableViewController.sortTitle", value: "Sort By", comment: "Action sheet title")
+        let launchDateLabel = NSLocalizedString("list.listTableViewController.launchDateLabel", value: "Launch Date", comment: "Action label")
+        let launchSiteLabel = NSLocalizedString("list.listTableViewController.launchSiteLabel", value: "Launch Site", comment: "Action label")
+        let rocketNameLabel = NSLocalizedString("list.listTableViewController.rocketNameLabel", value: "Rocket Name", comment: "Action label")
+        let launchStatusLabel = NSLocalizedString("list.listTableViewController.launchStatusLabel", value: "Launch Status", comment: "Action label")
+        let cancelLabel = NSLocalizedString("list.listTableViewController.cancelLabel", value: "Cancel", comment: "Action label")
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: sortButtonLabel, style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem!.rx.tap
             .subscribe(onNext: { [weak self] in
-                let menu = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
+                let menu = UIAlertController(title: sortTitle, message: nil, preferredStyle: .actionSheet)
                 
                 menu.addAction(
-                    UIAlertAction(title: "Launch Date", style: .default) { [weak self] _ in
+                    UIAlertAction(title: launchDateLabel, style: .default) { [weak self] _ in
                         self?.viewModel!.sortKey = .launchDate
                         self?.requestLaunches.onNext(false)
                     }
                 )
                 
                 menu.addAction(
-                    UIAlertAction(title: "Launch Site", style: .default) { [weak self] _ in
+                    UIAlertAction(title: launchSiteLabel, style: .default) { [weak self] _ in
                         self?.viewModel!.sortKey = .launchSite
                         self?.requestLaunches.onNext(false)
                     }
                 )
                 
                 menu.addAction(
-                    UIAlertAction(title: "Rocket Name", style: .default) { [weak self] _ in
+                    UIAlertAction(title: rocketNameLabel, style: .default) { [weak self] _ in
                         self?.viewModel!.sortKey = .rocketName
                         self?.requestLaunches.onNext(false)
                     }
                 )
                 
                 menu.addAction(
-                    UIAlertAction(title: "Launch Status", style: .default) { [weak self] _ in
+                    UIAlertAction(title: launchStatusLabel, style: .default) { [weak self] _ in
                         self?.viewModel!.sortKey = .launchStatus
                         self?.requestLaunches.onNext(false)
                     }
                 )
                 
                 menu.addAction(
-                    UIAlertAction(title: "Cancel", style: .cancel)
+                    UIAlertAction(title: cancelLabel, style: .cancel)
                 )
                 
                 self?.present(menu, animated: true, completion: nil)

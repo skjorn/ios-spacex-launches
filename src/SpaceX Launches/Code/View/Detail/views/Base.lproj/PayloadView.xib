@@ -29,7 +29,7 @@
                             <rect key="frame" x="18" y="0.0" width="357" height="197.5"/>
                             <subviews>
                                 <view contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="BX5-gW-MLF" userLabel="Type">
-                                    <rect key="frame" x="0.0" y="0.0" width="357" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcC-eE-Nw3">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="20.5"/>
@@ -38,7 +38,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Satellite" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsR-Qb-f9b">
-                                            <rect key="frame" x="0.0" y="20.5" width="357" height="21"/>
+                                            <rect key="frame" x="0.0" y="20.5" width="357" height="29.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-bn-N4p" userLabel="Mass">
-                                    <rect key="frame" x="0.0" y="43.5" width="357" height="50"/>
+                                    <rect key="frame" x="0.0" y="52" width="357" height="41.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mass:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btm-Ie-w4C">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="20.5"/>
@@ -64,7 +64,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="3000 kg" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="162-Zb-EhX">
-                                            <rect key="frame" x="0.0" y="20.5" width="357" height="29.5"/>
+                                            <rect key="frame" x="0.0" y="20.5" width="357" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
