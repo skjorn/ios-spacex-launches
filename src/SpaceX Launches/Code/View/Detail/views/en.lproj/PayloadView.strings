@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "3000 kg"; ObjectID = "162-Zb-EhX"; */
+"162-Zb-EhX.text" = "3000 kg";
+
+/* Class = "UILabel"; text = "1. Es’hail 2"; ObjectID = "8QQ-KE-pxf"; */
+"8QQ-KE-pxf.text" = "1. Es’hail 2";
+
+/* Class = "UILabel"; text = "GTO"; ObjectID = "Cpl-2E-gnF"; */
+"Cpl-2E-gnF.text" = "GTO";
+
+/* Class = "UILabel"; text = "Satellite"; ObjectID = "GsR-Qb-f9b"; */
+"GsR-Qb-f9b.text" = "Satellite";
+
+/* Class = "UILabel"; text = "Customers:"; ObjectID = "NkF-87-XAK"; */
+"NkF-87-XAK.text" = "Customers:";
+
+/* Class = "UILabel"; text = "Es’hailSat, Es’hailSat 2"; ObjectID = "T46-bu-i1t"; */
+"T46-bu-i1t.text" = "Es’hailSat, Es’hailSat 2";
+
+/* Class = "UILabel"; text = "Mass:"; ObjectID = "btm-Ie-w4C"; */
+"btm-Ie-w4C.text" = "Mass:";
+
+/* Class = "UILabel"; text = "Orbit type:"; ObjectID = "dEo-xz-iPh"; */
+"dEo-xz-iPh.text" = "Orbit type:";
+
+/* Class = "UILabel"; text = "Type:"; ObjectID = "vcC-eE-Nw3"; */
+"vcC-eE-Nw3.text" = "Type:";
